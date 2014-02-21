@@ -38,7 +38,7 @@
             <li class="active"><a href="#">Find a Roommate</a></li>
             <li><a href="apply.html">Apply</a></li>
           </ul>
-          <button class="btn btn-md pull-right verticalSpace">Logout</button> 
+          <button id="logoutButton" class="btn btn-md pull-right verticalSpace">Logout</button> 
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
@@ -49,5 +49,13 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/source.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#logoutButton").on("click", function(e) {
+          e.preventDefault();
+          logout();
+        });
+      });
+    </script>
   </body>
 </html>

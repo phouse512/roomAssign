@@ -1,5 +1,5 @@
 function logout(){
-	window.location.replace("home.html");
+	window.location.replace("login.html");
 }
 
 function login(){
