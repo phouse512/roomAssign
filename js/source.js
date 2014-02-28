@@ -3,7 +3,7 @@ function logout(){
 }
 
 function login(){
-	window.location.replace("home.html");
+	window.location.replace("research.html");
 }
 
 function chooseDorm(){
