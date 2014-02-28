@@ -34,7 +34,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><a href="home.html">Research</a></li>
+            <li><a href="research.html">Research</a></li>
             <li><a href="roommate.html">Find a Roommate</a></li>
             <li class="active"><a href="apply.html">Apply</a></li>
           </ul>
@@ -43,6 +43,105 @@
       </div><!-- /.container-fluid -->
     </nav>
 
+    <div class="alert alert-info alert-dismissable alert-save">
+      <button type="button" class="close save-close" aria-hidden="true">&times;</button>
+      <strong>Your application was saved successfully!</strong>
+    </div>
+
+    <div class="alert alert-success alert-dismissable alert-submit">
+      <button type="button" class="close submit-close" aria-hidden="true">&times;</button>
+      <strong>Your application was submitted successfully!</strong>
+    </div>
+
+    <div class="alert alert-danger alert-dismissable alert-submit-error">
+      <button type="button" class="close error-close" aria-hidden="true">&times;</button>
+      <strong>Your application wasn't submitted successfully, please insure that all forms are filled!</strong>
+    </div>
+
+    <div class="row" id="apply-data1">
+      <div class="col-lg-10 apply-wrapper">
+        <h3 class="apply-title">Apply</h3>
+        <hr />
+        <div class="row">
+          <div class="col-lg-3">
+            <h4>Select a Dorm to Continue..</h4>
+          </div>
+          <div class="col-lg-3">
+            <select class="form-control select-dorm">
+              <option>choose..</option>
+              <option>Foster Walker Complex</option>
+              <option>Hinman</option>
+              <option>Allison</option>
+              <option>Sargent</option>
+            </select>
+          </div>
+        </div> 
+        <div class="row">
+          <div class="col-lg-3">
+            <h4>Dorm Number</h4>
+          </div>
+          <div class="col-lg-3">
+            <div class="input-group room-selection">
+              <input type="text" class="form-control select-room" placeholder="room number..">
+              <span class="input-group-btn">
+                <button class="btn btn-default search-room" style="margin: 10px;" type="button">Go!</button>
+              </span>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <p class="apply-error">Room not found</p>
+          </div>
+        </div> 
+        <hr />
+        <div class="row">
+          <div class="col-lg-3 roommate1">
+            <h5>Roommate One</h5>
+            <form class="form-horizontal" role="form">
+              <div class="form-group">
+                <label for="roommateName1" class="col-sm-2 control-label">Name:</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="roommateName1" placeholder="name..">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="netID2" class="col-sm-2 control-label">NetID:</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="netID1" placeholder="netID..">
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="col-lg-3 roommate2">
+            <h5>Roommate Two</h5>
+            <form class="form-horizontal" role="form">
+              <div class="form-group">
+                <label for="roommateName2" class="col-sm-2 control-label">Name:</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="roommateName1" placeholder="name..">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="netID2" class="col-sm-2 control-label">NetID:</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="netID2" placeholder="netID..">
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="col-lg-3 noRoommate">
+            <h5>No roommate needed for single</h5>
+          </div>
+        </div>
+        <div class="row submitApp">
+          <div class="col-lg-1">
+            <button class="btn btn-block btn-primary" id="apply">Submit</button>
+          </div>
+          <div class="col-lg-1">
+            <button class="btn btn-block btn-default" id="save">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -54,6 +153,18 @@
         $("#logoutButton").on("click", function(e) {
           e.preventDefault();
           logout();
+        });
+
+        $(".search-room").on("click", function(){
+          parseRoom($(".select-room").val());
+        });
+
+        $("#apply").on("click", function() {
+          submitApp();
+        });
+
+        $("#save").on("click", function() {
+          saveApp();
         });
       });
     </script>

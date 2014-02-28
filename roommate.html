@@ -34,7 +34,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><a href="home.html">Research</a></li>
+            <li><a href="research.html">Research</a></li>
             <li class="active"><a href="#">Find a Roommate</a></li>
             <li><a href="apply.html">Apply</a></li>
           </ul>
@@ -43,6 +43,75 @@
       </div><!-- /.container-fluid -->
     </nav>
 
+    <div class="alert alert-danger alert-dismissable alert-search-error">
+      <button type="button" class="close error-close" aria-hidden="true">&times;</button>
+      <strong>Your search didn't have enough data, please fill out more so we can match you as best as possible!</strong>
+    </div>
+
+    <div class="row" id="roommate-data1">
+      <div class="col-lg-10 roommate-wrapper">
+        <h3 class="roommate-title">Roommate Search</h3>
+        <hr />
+
+        <div class="row" id="roommate-form">
+          <div class="col-lg-10">
+            <form style="margin-top: 20px;"  class="form-horizontal" role="form">
+              <div class="form-group">
+                <label for="inputMajor" class="col-sm-4 control-label">Major</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="inputMajor" placeholder="field of study..">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="areaOfCampus" class="col-sm-4 control-label">What area of campus would you like to live?</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="areaOfCampus" placeholder="area of campus..">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="sleepingHabits" class="col-sm-4 control-label">What are your sleeping habits like?</label>
+                <div class="col-sm-8">
+                  <select class="form-control">
+                    <option>choose..</option>
+                    <option>aight</option>
+                    <option>ridiculous</option>
+                    <option>freaking fantastic</option>
+                    <option>mind-blowing</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="interests" class="col-sm-4 control-label">What interests do you have? Separate entries by enter.</label>
+                <div class="col-sm-8">
+                  <textarea class="form-control" rows="4" id="interests" placeholder="interests.."></textarea>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="col-sm-offset-4 col-sm-8">
+                  <button type="submit" class="btn btn-default" id="search">Search</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div style="margin-top: 40px;" class="row" id="roommate-results">
+          <div class="col-lg-10 col-lg-offset-1">
+            <ul class="list-group">
+              <li class="list-group-item">John Deere<button class="btn btn-xs btn-primary pull-right">View More</button></li>
+              <li class="list-group-item">John Smith<button class="btn btn-xs btn-primary pull-right">View More</button></li>
+              <li class="list-group-item">Leo George<button class="btn btn-xs btn-primary pull-right">View More</button></li>
+              <li class="list-group-item">Michael Jordan<button class="btn btn-xs btn-primary pull-right">View More</button></li>
+              <li class="list-group-item">I am a Robot<button class="btn btn-xs btn-primary pull-right">View More</button></li>
+            </ul>
+
+          </div>
+        </div>
+      </div> 
+    </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -54,6 +123,11 @@
         $("#logoutButton").on("click", function(e) {
           e.preventDefault();
           logout();
+        });
+
+        $("#search").on("click", function(e){
+          e.preventDefault();
+          searchForRoommate();
         });
       });
     </script>

@@ -6,3 +6,172 @@
 .verticalSpace {
 	margin-top: 7px;
 }
+
+.large-map {
+	margin-left: 40px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+}
+
+.welcome-panel {
+	padding: 0px;
+}
+
+.welcome-panel .list-group {
+	margin-bottom: 0px;
+}
+
+
+/* Research page part 2 */
+
+.dorm-title {
+	margin-top: 0px;
+	margin-left: 50px;
+}
+
+
+
+.floorplan {
+	margin-left: 50px;
+	border: 1px solid #ddd;
+	background-image: url("../img/sargent3.gif");
+	height: 600px;
+	overflow: auto;
+	border-radius: 5px;
+}
+
+
+
+.floorplan img {
+	margin-top: 20px;
+	margin-left: 10px;
+}
+
+.floor-button {
+	position: relative;
+	margin-top: 20px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.dorm-description {
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	height: 600px;
+	margin-left: 20px;
+	overflow: scroll;
+}
+
+.description-text p {
+	margin-left: 5px;
+}
+
+.description-text b {
+	margin-right: 5px;
+}
+
+#data2 {
+	display: none;
+}
+
+/* Apply page styling */
+
+.apply-wrapper {
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	height: 600px;
+	margin-left: 50px;
+}
+
+.apply-wrapper h4{
+	margin: 10px;
+	margin-top: 18px;
+}
+
+.apply-title {
+	margin-top: 15px;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+}
+
+.apply-wrapper hr {
+	margin: 5px;
+}
+
+.select-dorm {
+	width: 300px;
+	margin: 10px;
+}
+
+.select-room {
+	width: 300px;
+	margin: 10px;
+}
+
+.apply-error {
+	color: red;
+	margin-left: 20px;
+	margin-top: 17px;
+	display: none;
+}
+
+.roommate1 {
+	margin: 20px;
+	display: none;
+}
+
+.roommate2 {
+	margin: 20px;
+	display: none;
+}
+
+.noRoommate {
+	margin: 20px;
+	display: none;
+}
+
+.submitApp {
+	display: none;
+}
+
+.alert {
+	display: none;
+}
+
+/* Roommate page style */
+
+.roommate-wrapper {
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	height: 600px;
+	margin-left: 50px;
+}
+
+#roommate-results {
+	display: none;
+}
+
+.roommate-title {
+	margin-top: 15px;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+}
+
+.roommate-wrapper hr {
+	margin: 5px;
+}
+
+.dormButton {
+	position: absolute;
+	bottom: 550px;
+	left: 300px;
+}
+
+.selectedFloor {
+	background-color: rgb(80,80,80);
+	border: 1px solid rgb(40,40,40);
+	color: white;
+}
+
+
+
