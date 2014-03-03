@@ -34,6 +34,20 @@ function backToMap(){
 	});
 }
 
+function displayApplicationReceipt(){
+	$(".appliedDorm").html(localStorage.appliedDorm);
+	$(".appliedRoom").html(localStorage.appliedRoom);
+	$("#apply-data1").hide("slow", function(){
+		$("#applied").show("slow");
+	});
+}
+
+function displayApplication(){
+	$("#applied").hide("slow", function(){
+		$("#apply-data1").show("slow");
+	});
+}
+
 function parseRoom(roomNumber){
 	hideRoommateForms();
 	if(roomNumber == "310"){
@@ -65,7 +79,6 @@ function parseRoom(roomNumber){
 	}
 }
 
-
 function hideRoommateForms(){
 	$(".roommate1").hide("slow");
 	$(".roommate2").hide("slow");
@@ -90,6 +103,9 @@ function showTriple(){
 }
 
 function saveApp(){
+	clearAlerts();
+	saveApplication();
+	localStorage.isAppSaved = 1
 	$(".alert-save").show("slow", function() {
 		$(".save-close").on("click", function(){
 			$(".alert-save").hide("slow");
@@ -98,23 +114,27 @@ function saveApp(){
 }
 
 function submitApp(){
+	clearAlerts();
 	if(!$(".select-room").val()){
 		$(".alert-submit-error").show("slow", function() {
 			$(".error-close").on("click", function(){
 				$(".alert-submit-error").hide("slow");
 			});
 		});
-
 	} else {
+		storeFinishedApplication($(".select-room").val(), $(".select-dorm").val());
+		displayApplicationReceipt();
 		$(".alert-submit").show("slow", function() {
 			$(".submit-close").on("click", function(){
 				$(".alert-submit").hide("slow");
 			});
 		});
+
 	}
 }
 
 function searchForRoommate(){
+	clearAlerts();
 	if(!$("#inputMajor").val()){
 		$(".alert-search-error").show("slow", function() {
 			$(".error-close").on("click", function(){
@@ -123,9 +143,7 @@ function searchForRoommate(){
 		});
 		console.log("error");
 	} else {
-		$("#roommate-form").hide("slow", function() {
-			$("#roommate-results").show("slow");
-		});
+		$("#roommate-results").fadeIn("slow");
 	}
 }
 
@@ -149,4 +167,102 @@ function fourthFloor(){
 	$("#4Floor").addClass("selectedFloor");
 	$("#3Floor").removeClass("selectedFloor");
 	$("#2Floor").removeClass("selectedFloor");
+}
+
+function autoLoadSavedData(){
+	clearAlerts();
+	if (localStorage.appliedRoom){
+		//if application is already finished
+		console.log("stored");
+		$("#selected-room").html(localStorage.appliedRoom);
+		$("#selected-dorm").html(localStorage.appliedDorm);
+		displayApplicationReceipt();
+	} else {
+		// if application is not finished
+		if(localStorage.isAppSaved){
+			loadSavedApplication();
+
+		} else {
+			// if application is not saved
+			$("#selected-room").html("");
+			$("#selected-dorm").html("");	
+			displayApplication();
+		}
+	}
+}
+
+function loadSavedApplication(){
+	if(localStorage.savedRoomNumber){
+		$(".select-room").val(localStorage.savedRoomNumber);
+		parseRoom(localStorage.savedRoomNumber);
+	}
+	if(localStorage.savedDormBuilding){
+		$(".select-dorm").val(localStorage.savedDormBuilding);
+	}
+	if(localStorage.savedRoommateName1){
+		showDouble();
+		$("#roommateName1").val(localStorage.savedRoommateName1);
+	}
+	if(localStorage.savedNetID1){
+		showDouble();
+		$("#netID1").val(localStorage.savedNetID1);
+	}
+	if(localStorage.savedRoommateName2){
+		showTriple();
+		$("#roommateName2").val(localStorage.savedRoommateName2);
+	}
+	if(localStorage.savedNetID2){
+		showTriple();
+		$("#netID2").val(localStorage.savedNetID2);
+	}
+	$(".alert-loadSave").show("slow", function() {
+		$(".loadSave-close").on("click", function(){
+			$(".alert-loadSave").hide("slow");
+		});
+	});
+}
+
+function saveApplication(){
+	if($(".select-room").val()){
+		localStorage.savedRoomNumber = $(".select-room").val();
+	}
+	if($(".select-dorm").val()){
+		localStorage.savedDormBuilding = $(".select-dorm").val();
+	}
+	if($("#roommateName1").val()){
+		localStorage.savedRoommateName1 = $("#roommateName1").val();
+	} 
+	if($("#netID1").val()){
+		localStorage.savedNetID1 = $("#netID1").val();
+	} 
+	if($("#roommateName2").val()){
+		localStorage.savedRoommateName2 = $("#roommateName2").val();
+	} 
+	if($("#netID2").val()){
+		localStorage.savedNetID2 = $("#netID2").val();
+	} 
+}
+
+function clearSavedApplication(){
+	localStorage.removeItem("savedRoomNumber");
+	localStorage.removeItem("savedDormBuilding");
+	localStorage.removeItem("savedRoommateName1");
+	localStorage.removeItem("savedNetID1");
+	localStorage.removeItem("savedRoommateName2");
+	localStorage.removeItem("savedNetID2");
+	localStorage.removeItem("isAppSaved");
+}
+
+function storeFinishedApplication(roomNumber, dorm){
+	localStorage.appliedRoom = roomNumber;
+	localStorage.appliedDorm = dorm;
+}
+
+function resetFinishedApplication(){
+	localStorage.removeItem("appliedRoom");
+	localStorage.removeItem("appliedDorm");
+}
+
+function clearAlerts(){
+	$(".alert").hide("slow");
 }

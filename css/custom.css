@@ -29,6 +29,10 @@
 	margin-left: 50px;
 }
 
+#applied {
+	display: none;
+}
+
 
 
 .floorplan {
@@ -99,7 +103,7 @@
 }
 
 .select-dorm {
-	width: 300px;
+	width: 255px;
 	margin: 10px;
 }
 
@@ -173,5 +177,32 @@
 	color: white;
 }
 
+.receipt {
+	color: rgb(100,100,100);
+}
+
+.room205 {
+	position: absolute;
+	bottom: 400px;
+	left: 100px;
+	background-color: rgb(70,70,70);
+	color: white;
+}
+
+.room310 {
+	position: absolute;
+	bottom: 200px;
+	left: 50px;
+	background-color: rgb(70,70,70);
+	color: white;
+}
+
+.room410 {
+	position: absolute;
+	bottom: 30px;
+	left: 230px;
+	background-color: rgb(70,70,70);
+	color: white;
+}
 
 

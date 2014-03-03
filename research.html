@@ -54,15 +54,15 @@
           <div class="panel-heading features-header">Get Started:</div>
             <div class="panel-body welcome-panel">
               <div class="list-group">
-                <a href="#" class="list-group-item">
+                <a href="research.html" class="list-group-item">
                   <h4 class="list-group-item-heading">Do Your Research!</h4>
                   <p class="list-group-item-text">Click any dorm on the map to begin your journey to finding the perfect dorm!</p>
                 </a>
-                <a href="#" class="list-group-item">
+                <a href="apply.html" class="list-group-item">
                   <h4 class="list-group-item-heading">Choose a Room.</h4>
                   <p class="list-group-item-text">Use RoomAssign to do detailed research on what your new home will be like.</p>
                 </a>
-                <a href="#" class="list-group-item">
+                <a href="roommate.html" class="list-group-item">
                   <h4 class="list-group-item-heading">Find a Roommate!</h4>
                   <p class="list-group-item-text">Use our matching system to a roommate that matches your habits.</p>
                 </a>
@@ -86,6 +86,9 @@
         <button class="btn btn-lg floor-button pull-right" id="4Floor">4</button>   
         <button class="btn btn-lg floor-button pull-right selectedFloor" id="3Floor">3</button>
         <button class="btn btn-lg floor-button pull-right" id="2Floor">2</button>   
+        <button class="btn btn-default btn-sm room205" data-toggle="modal" data-target="#room205">205</button>
+        <button class="btn btn-default btn-sm room310" data-toggle="modal" data-target="#room310">310</button>
+        <button class="btn btn-default btn-sm room410" data-toggle="modal" data-target="#room410">410</button>
       </div>
       <div class="col-lg-6 dorm-description">
         <h4>Description:</h4>
@@ -181,7 +184,83 @@
 
         </div>
       </div>
+      <div class="modal fade" id="room205" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title" id="myModalLabel">Room Details</h4>
+            </div>
+            <div class="modal-body">
+              <h4>Room 205</h4>
+              <h5>Room Type: Single</h5>
+              <h5>Room Pricing: $9,500/yr</h5>
+              <h5>Furniture:</h5>
+              <ul>
+                <li>1 Dresser</li>
+                <li>1 Desk</li>
+                <li>1 Bed</li>
+              </ul>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary saveRoom205" value="205">Save Room</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="room310" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title" id="myModalLabel">Room Details</h4>
+            </div>
+            <div class="modal-body">
+              <h4>Room 310</h4>
+              <h5>Room Type: Double</h5>
+              <h5>Room Pricing: $8,500/yr</h5>
+              <h5>Furniture:</h5>
+              <ul>
+                <li>2 Dressers</li>
+                <li>2 Desks</li>
+                <li>2 Beds</li>
+              </ul>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary saveRoom310" value="310">Save Room</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="room410" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title" id="myModalLabel">Room Details</h4>
+            </div>
+            <div class="modal-body">
+              <h4>Room 410</h4>
+              <h5>Room Type: Triple</h5>
+              <h5>Room Pricing: $7,500/yr</h5>
+              <h5>Furniture:</h5>
+              <ul>
+                <li>3 Dressers</li>
+                <li>3 Desks</li>
+                <li>3 Beds</li>
+              </ul>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary saveRoom410" value="410">Save Room</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -205,6 +284,28 @@
         $(".dormButton").on("click", function(e){
           e.preventDefault();
           chooseDorm();
+        });
+
+        $(".saveRoom205").on("click", function(e){
+          e.preventDefault();
+          localStorage.savedRoomNumber = $(".saveRoom205").val();
+          localStorage.savedDormBuilding = "Sargent";
+          localStorage.isAppSaved = 1;
+          window.location.replace("apply.html");
+        });
+        $(".saveRoom310").on("click", function(e){
+          e.preventDefault();
+          localStorage.savedRoomNumber = $(".saveRoom310").val();
+          localStorage.savedDormBuilding = "Sargent";
+          localStorage.isAppSaved = 1;
+          window.location.replace("apply.html");
+        });
+        $(".saveRoom410").on("click", function(e){
+          e.preventDefault();
+          localStorage.savedRoomNumber = $(".saveRoom410").val();
+          localStorage.savedDormBuilding = "Sargent";
+          localStorage.isAppSaved = 1;
+          window.location.replace("apply.html");
         });
       });
     </script>

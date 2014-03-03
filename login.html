@@ -41,6 +41,38 @@
                         </form>
                 </div>
             </div> 
+            <div class="modal fade" id="prototypeDescription" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel">RoomAssign Prototype</h4>
+                        </div>
+                        <div class="modal-body">
+                            <h4>Welcome to the first prototype of RoomAssign!</h4>
+                            <h5>This is what this prototype is built <b>to</b> do:</h5>
+                            <ul>
+                                <li>display what RoomAssign is fundamentally supposed to do: allow for dorm research, roommate finding, and housing application - no login is needed</li>
+                                <li>use HTML5 local storage to allow for a simulation of saved and finished housing applications</li>
+                            </ul>
+                            <h5>this prototype is <b>NOT</b> built to:</h5>
+                            <ul>
+                                <li>offer legitimate and accurate information about how housing information at Northwestern</li>
+                                <li>have a real backend that allows for different users and correctly stored data</li>
+                            </ul>
+
+                            <h5>Other Notes:</h5>
+                            Throughout this application, there are only three actual hardcoded rooms available to apply for - 205 (single), 310 (double), 410 (triple)<br /><br />
+
+                            As mentioned before, data is stored using HTML5's localStorage which uses clients' local browsers. If this is your first time testing the prototype, <b>clear the cache below</b> so that there is no previous saved or finished applications that will take away from your ability to test the entire protoype.
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary clearCache">Clear Cache</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -50,9 +82,16 @@
     <script src="js/source.js"></script>
     <script type="text/javascript">
       $(document).ready(function() {
+        $("#prototypeDescription").modal("show");
         $("#loginButton").on("click", function(e) {
           e.preventDefault();
           login();
+        });
+        $(".clearCache").on("click", function(e){
+            e.preventDefault();
+            resetFinishedApplication();
+            clearSavedApplication();
+            $("#prototypeDescription").modal("hide");
         });
       });
     </script>
